@@ -44,7 +44,7 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-           <img src="/assets/img/banner44.jpg" width="100%" height="50%" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false">
+           <img src="assets/img/banner44.jpg" width="100%" height="50%" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false">
       
            
           </div>
@@ -79,7 +79,7 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-            <img src="/assets/img/qr.png" width="100%" height="50%" >
+            <img src="assets/img/qr.png" width="100%" height="50%" >
            
             <div class="card-body">
               <div class="mb-2 text-success" >QR Code</div>
@@ -92,7 +92,7 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <img src="/assets/img/alerts.png"  width="100%" height="50%" >
+            <img src="assets/img/alerts.png"  width="100%" height="50%" >
            
             <div class="card-body">
               <div class="mb-2 text-success" >Driver's License</div>
@@ -106,7 +106,7 @@
         <div class="col">
           <div class="card shadow-sm">
             
-           <img src="/assets/img/dashboard.png" width="100%" height="50%" >
+           <img src="assets/img/dashboard.png" width="100%" height="50%" >
             <div class="card-body">
               <div class="mb-2 text-success" >Admin Dashboard</div>
               <p class="card-text">Super admin has access to information of registered vehicles.
@@ -158,7 +158,7 @@
           <div class="col-auto d-none d-lg-block">
             
             <video  width="200" height="250" ccontrols="false" loop="true" autoplay="true">
-              <source src="/assets/img/vid.mp4"   type="video/mp4">
+              <source src="assets/img/vid.mp4"   type="video/mp4">
             
             </video>
           </div>
@@ -174,7 +174,7 @@
             
           </div>
           <div class="col-auto d-none d-lg-block">
-            <img src="/assets/img/live.png" width="200" height="250"  >
+            <img src="assets/img/live.png" width="200" height="250"  >
           </div>
         </div>
       </div>
