@@ -13,27 +13,38 @@ if (isset($_POST['createaccount'])) {
 
 
         // Validations   
+
+        // if username exist 
         if (!DB::query('SELECT username FROM users WHERE username=:username', array(':username'=>$username))) {
 
+          // Check username length 
                 if (strlen($username) >= 3 && strlen($username) <= 32) {
 
+                  // Username regex 
                         if (preg_match('/[a-zA-Z0-9_]+/', $username)) {
 
+
+                          // Password length 
                                 if (strlen($password) >= 6 && strlen($password) <= 60) {
 
+                                // Check if email is valid 
                                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
+
+                                  // Check if email already exist
                                 if (!DB::query('SELECT email FROM users WHERE email=:email', array(':email'=>$email))) {
 
-                                        DB::query('INSERT INTO users VALUES (\'\', :username, :password, :email, \'0\', NOW())', array(':username'=>$username, ':password'=>password_hash($password, PASSWORD_BCRYPT), ':email'=>$email));
-                                        echo "<script>window.open('index.php', '_self')</script>";
-                                         $cstrong = True;
-                        $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
-                        $user_id = DB::query('SELECT id FROM users WHERE username=:username', array(':username'=>$username))[0]['id'];
-                        DB::query('INSERT INTO login_tokens VALUES (\'\', :token, :user_id)', array(':token'=>sha1($token), ':user_id'=>$user_id));
+                                      // Insert into database 
+                                      DB::query('INSERT INTO users VALUES (\'\', :username, :password, :email, \'0\', NOW())', array(':username'=>$username, ':password'=>password_hash($password, PASSWORD_BCRYPT), ':email'=>$email));
+                                      $cstrong = True;
+                                      $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
+                                      $user_id = DB::query('SELECT id FROM users WHERE username=:username', array(':username'=>$username))[0]['id'];
+                                      DB::query('INSERT INTO login_tokens VALUES (\'\', :token, :user_id)', array(':token'=>sha1($token), ':user_id'=>$user_id));
 
-                        setcookie("SNID", $token, time() + 60 * 60 * 24 * 30, '/', NULL, NULL, TRUE);
-                        setcookie("SNID_", '1', time() + 60 * 60 * 24 * 30, '/', NULL, NULL, TRUE);
+                                      setcookie("SNID", $token, time() + 60 * 60 * 24 * 30, '/', NULL, NULL, TRUE);
+                                      setcookie("SNID_", '1', time() + 60 * 60 * 24 * 30, '/', NULL, NULL, TRUE);
+
+
                                 } else {
                                        $_SESSION['message'] = "<font color='#F44336'>*This email account is taken</font>";
                                 }
@@ -206,7 +217,9 @@ echo "<script>window.open('index.php', '_self')</script>";
             
               <h1 class="h6 mb-3 fw-normal">Register New Admin</h1>
           </center>
-      
+          <center><p class="font"><?= $_SESSION['message'] ?></p></center>
+
+
            <article class="my-3" id="validation">
               <div class="bd-example">
               <form class="row g-3">
