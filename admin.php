@@ -37,7 +37,8 @@ if (isset($_POST['createaccount'])) {
                                 if (!DB::query('SELECT email FROM users WHERE email=:email', array(':email'=>$email))) {
 
                                       // Insert into database 
-                                      DB::query('INSERT INTO users VALUES (\'\', :username, :password, :email, \'0\', NOW())', array(':username'=>$username, ':password'=>password_hash($password, PASSWORD_BCRYPT), ':email'=>$email));
+                                      DB::query('INSERT INTO users VALUES (\'\',  :firstname,  :lastname,  :username, :city, :state, :zipcode, :username, :email,  :password, )', 
+                                            array(':firstname'=>$firstname, ':lastname'=>$lastname, ':username'=>$username, ':city'=>$city, ':state'=>$state, ':zipcode'=>$zipcode, ':password'=>password_hash($password, PASSWORD_BCRYPT), ':email'=>$email));
                                       $cstrong = True;
                                       $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
                                       $user_id = DB::query('SELECT id FROM users WHERE username=:username', array(':username'=>$username))[0]['id'];
