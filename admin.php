@@ -13,7 +13,6 @@ if (isset($_POST['createaccount'])) {
         $phone = $_POST['phone'];
 
 
-        echo "<br><br><br><br><br>Heyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy";
 
         // Validations   
 
