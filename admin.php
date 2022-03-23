@@ -12,6 +12,8 @@ if (isset($_POST['createaccount'])) {
         $password = $_POST['password'];
 
 
+        echo "<br><br><br><br><br>Heyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy";
+
         // Validations   
 
         // if username exist 
@@ -222,7 +224,7 @@ echo "<script>window.open('index.php', '_self')</script>";
 
            <article class="my-3" id="validation">
               <div class="bd-example">
-              <form class="row g-3">
+              <form class="row g-3"  action="admin.php" method="post">
           
                 <div class="col-md-6">
                   <div class="form-floating">
@@ -303,7 +305,7 @@ echo "<script>window.open('index.php', '_self')</script>";
                   
                 </div>
                 <div class="col-12">
-                  <button class="w-100 btn btn-lg btn-success" type="submit">Create Admin</button>
+                  <button class="w-100 btn btn-lg btn-success" type="submit" name="createaccount">Create Admin</button>
                 </div>
               
               </form>
