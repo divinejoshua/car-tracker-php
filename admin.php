@@ -2,10 +2,17 @@
 include('classes/DB.php');
 $_SESSION['message'] = '';
 if (isset($_POST['createaccount'])) {
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $city = $_POST['city'];
+        $state = $_POST['state'];
+        $zipcode = $_POST['zipcode'];
         $email = $_POST['email'];
+        $password = $_POST['password'];
 
+
+        // Validations   
         if (!DB::query('SELECT username FROM users WHERE username=:username', array(':username'=>$username))) {
 
                 if (strlen($username) >= 3 && strlen($username) <= 32) {
