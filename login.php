@@ -1,3 +1,37 @@
+<?php 
+include('classes/DB.php');
+
+$_SESSION['message'] = '';
+if (isset($_POST['login'])) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        if (DB::query('SELECT email FROM users WHERE email=:email', array(':email'=>$email))) {
+
+                if (password_verify($password, DB::query('SELECT password FROM users WHERE email=:email', array(':email'=>$email))[0]['password'])) {
+                        $cstrong = True;
+                        $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
+                        $user_id = DB::query('SELECT id FROM users WHERE email=:email', array(':email'=>$email))[0]['id'];
+                        DB::query('INSERT INTO login_tokens VALUES (\'\', :token, :user_id)', array(':token'=>sha1($token), ':user_id'=>$user_id));
+
+                        setcookie("SNID", $token, time() + 60 * 60 * 24 * 70, '/', NULL, NULL, TRUE);
+                        setcookie("SNID_", '1', time() + 60 * 60 * 24 * 30, '/', NULL, NULL, TRUE);
+                        echo "<script>window.open('dash.php', '_self')</script>";
+
+
+                } else {
+                         $_SESSION['message'] = "<font color='#F44336'>*Incorrect Password !!!</font>";
+                }
+
+        } else {
+                $_SESSION['message'] = "<font color='#F44336'>Email not found</font>";
+        }
+
+}
+
+
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -24,7 +58,7 @@
          <!--End of navbar-->
 
     <!-- Bootstrap core CSS -->
-<link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -44,21 +78,22 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="/signin.css" rel="stylesheet">
+    <link href="signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
     
 <main class="form-signin">
-  <form>
+  <form action="login.php" method="post">
     <h2> VR-Records</h2>
+    <center><p class="font col-red"><?= $_SESSION['message'] ?></p></center>
     <h1 class="h6 mb-3 fw-normal">Please sign in</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
       <label for="floatingInput">Email address</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="floatingPassword"  name="password" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
 
@@ -67,8 +102,8 @@
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
-   <a href="dash.htm"><button class="w-100 btn btn-lg btn-success" type="submit">Sign in</button></a> 
-    <p class="mt-5 mb-3 text-muted">developed by <a href="https://instagram.com/trayon_dmn">Trayon</a> &copy 2021 </p>
+      <button class="w-100 btn btn-lg btn-success" type="submit" name="login">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">developed by <a href="https://instagram.com/trayon_dmn">Trayon</a> &copy 2022 </p>
   </form>
 </main>
 
