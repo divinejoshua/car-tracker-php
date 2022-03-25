@@ -90,9 +90,10 @@ return $username;
 
 <!-- Include the header  -->
 <?php
-    $home = "theme-active";
-    $about = "";
-    $gallery = "";
+    $recentSearches = "nav-link";
+    $addAdmin = "nav-link active";
+    $addVehicle = "nav-link";
+    $viewVehicle = "nav-link";
     include('header.php');
 
  ?>

@@ -59,7 +59,7 @@
         <ul class="nav flex-column">
 
           <li class="nav-item">
-            <a class="nav-link" href="index.htm">
+            <a class="nav-link" href="index.php">
               <span data-feather="home"></span>
               Home
             </a>
@@ -73,7 +73,7 @@
         </li>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="profile.htm">
+            <a class="<?php echo "$addAdmin"; ?>" href="admin.php">
               <span data-feather="users"></span>
               Add Admin
             </a>
@@ -90,20 +90,20 @@
         </h6>
         <ul class="nav flex-column mb-2">
         <li class="nav-item">
-            <a class="nav-link" href="vehicle.htm">
+            <a class="nav-link" href="vehicle.php">
                 <span data-feather="plus-circle"></span>
                 Add New vehicle
             </a>
             </li>
           <li class="nav-item">
-            <a class="nav-link" href="allvehicles.htm">
+            <a class="<?php echo "$viewVehicle"; ?>" href="allvehicles.php">
               <span data-feather="file-text"></span>
               View All Vehicles
             </a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="index.htm">
+            <a class="nav-link" href="index.php">
               <span data-feather="users"></span>
               Log out
             </a>
