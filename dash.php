@@ -1,4 +1,5 @@
 <?php
+    include('classes/DB.php');
 
 // get logged in user 
 function isLoggedInUsername(){
@@ -14,7 +15,10 @@ return $username;
 
 
   // Get recent searches 
-  $dbposts = DB::query('SELECT * FROM recent_searches');
+  $dbposts = DB::query('SELECT * FROM recent_search');
+
+  $posts = "";
+
 
 
 
@@ -53,77 +57,30 @@ return $username;
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>2/02/2022</td>
-              <td>John Okafor</td>
-              <td><img src="/assets/img/pass.jpeg" width="50" height="50" ></td>
-              <td>AKY34FG</td>
-              <td><img src="/assets/img/qr.png" width="50" height="50" ></td>
-            </tr>
-            <tr>
-              <td>2/02/2022</td>
-              <td>John Okafor</td>
-              <td><img src="/assets/img/pass.jpeg" width="50" height="50" ></td>
-              <td>AKY34FG</td>
-              <td><img src="/assets/img/qr.png" width="50" height="50" ></td>
-            </tr>
-            <tr>
-              <td>2/02/2022</td>
-              <td>John Okafor</td>
-              <td><img src="/assets/img/pass.jpeg" width="50" height="50" ></td>
-              <td>AKY34FG</td>
-              <td><img src="/assets/img/qr.png" width="50" height="50" ></td>
-            </tr>
-            <tr>
-              <td>2/02/2022</td>
-              <td>John Okafor</td>
-              <td><img src="/assets/img/pass.jpeg" width="50" height="50" ></td>
-              <td>AKY34FG</td>
-              <td><img src="/assets/img/qr.png" width="50" height="50" ></td>
-            </tr>
-            <tr>
-              <td>2/02/2022</td>
-              <td>John Okafor</td>
-              <td><img src="/assets/img/pass.jpeg" width="50" height="50" ></td>
-              <td>AKY34FG</td>
-              <td><img src="/assets/img/qr.png" width="50" height="50" ></td>
-            </tr>
-            <tr>
-              <td>2/02/2022</td>
-              <td>John Okafor</td>
-              <td><img src="/assets/img/pass.jpeg" width="50" height="50" ></td>
-              <td>AKY34FG</td>
-              <td><img src="/assets/img/qr.png" width="50" height="50" ></td>
-            </tr>
-            <tr>
-              <td>2/02/2022</td>
-              <td>John Okafor</td>
-              <td><img src="/assets/img/pass.jpeg" width="50" height="50" ></td>
-              <td>AKY34FG</td>
-              <td><img src="/assets/img/qr.png" width="50" height="50" ></td>
-            </tr>
-            <tr>
-              <td>2/02/2022</td>
-              <td>John Okafor</td>
-              <td><img src="/assets/img/pass.jpeg" width="50" height="50" ></td>
-              <td>AKY34FG</td>
-              <td><img src="/assets/img/qr.png" width="50" height="50" ></td>
-            </tr>
-            <tr>
-              <td>2/02/2022</td>
-              <td>John Okafor</td>
-              <td><img src="/assets/img/pass.jpeg" width="50" height="50" ></td>
-              <td>AKY34FG</td>
-              <td><img src="/assets/img/qr.png" width="50" height="50" ></td>
-            </tr>
-            <tr>
-              <td>2/02/2022</td>
-              <td>John Okafor</td>
-              <td><img src="/assets/img/pass.jpeg" width="50" height="50" ></td>
-              <td>AKY34FG</td>
-              <td><img src="/assets/img/qr.png" width="50" height="50" ></td>
-            </tr>
-            
+
+            <?php
+                foreach($dbposts as $post) {
+                  $firstname = DB::query('SELECT firstname FROM cars, recent_search WHERE cars.id=:car_id', array(':car_id'=>$post['car_id']))[0]['firstname'] ;
+                  $lastname = DB::query('SELECT lastname FROM cars, recent_search WHERE cars.id=:car_id', array(':car_id'=>$post['car_id']))[0]['lastname'] ;
+                  $passport = DB::query('SELECT passport FROM cars, recent_search WHERE cars.id=:car_id', array(':car_id'=>$post['car_id']))[0]['passport'] ;
+                  $reg_no = DB::query('SELECT reg_no FROM cars, recent_search WHERE cars.id=:car_id', array(':car_id'=>$post['car_id']))[0]['reg_no'] ;
+
+
+                echo"
+                    <tr>
+                    <td>".$post['date']." </td>
+                    <td>".$firstname."  ".$lastname."</td>
+                    <td><img src= ".$passport."  width='50' height='50'></td>
+                    <td>".$reg_no."</td>
+                    <td><img src='https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fhttp://127.0.0.1/car-records/allvehicles.php?reg_no=".$reg_no."' width='50' height='50'></td>
+                    </tr>
+                    ";
+                }
+            ?>
+
+
+
+           
           </tbody>
         </table>
       </div>
