@@ -42,197 +42,35 @@
                     <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
                     <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
                   </tr>
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                 
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                 
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                 
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                 
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                 
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                 
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                 
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                 
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                 
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                 
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                 
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                 
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                 
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                 
-                  <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                 
+                
+                  <?php
+                      $dbposts = DB::query('SELECT posts.id, posts.body, users.username FROM posts, users
+                      WHERE users.id = posts.user_id
+                      AND reciever_id=:userid
+                      ORDER BY id DESC', array(':userid'=>$userid));
+                      $posts = "";
+                      $number = count($dbposts);
+                      foreach($dbposts as $p) {
+                      $posts .= "
+                                      <div class='sl-item'>
+                                                <div class='sl-left'> <img src='../assets/images/users/avatar.png' alt='user' class='img-circle'> </div>
+                                                <div class='sl-right'>
+                                                    <div><h6><font color ='#1e88e5'<a href='javascript:void(0)' class='link'>@Truetalker</font></a> <span class='sl-date'> minutes ago</span></h6>
+                                                        <p class='m-t-10'>";
+
+                                                         $posts .= htmlspecialchars($p['body'])." </p>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                            <hr>
+
+    
+                        ";
+                }
+
+?>
+   
 
                 
               </tbody>
