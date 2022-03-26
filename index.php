@@ -62,8 +62,8 @@
   <div class="row py-lg-5">
     <div class="col-lg-6 col-md-8 mx-auto">
       <h5 class="fw-light">VR-Records, record and monitoring System for you.</h5>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Enter reg number to search records" aria-label="Search">
+      <form class="d-flex" action="allvehicles.php" method="get">
+        <input class="form-control me-2" type="search" name="reg_no" placeholder="Enter reg number to search records" aria-label="Search">
         <button class="btn btn-outline-dark" type="submit">Search</button>
       </form>
     </div></div>

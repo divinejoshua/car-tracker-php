@@ -12,6 +12,15 @@ return $username;
     return false;
 }
 
+
+  // Get recent searches 
+  $dbposts = DB::query('SELECT * FROM recent_searches');
+
+
+
+
+
+
 ?>
 
 

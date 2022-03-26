@@ -2,6 +2,7 @@
 <?php
     include('classes/DB.php');
 
+
     $recentSearches = "nav-link";
     $addAdmin = "nav-link";
     $addVehicle = "nav-link";
@@ -10,8 +11,22 @@
 
 
 
-    $dbposts = DB::query('SELECT * FROM cars');
+    // If there is search 
+    if(isset($_GET["reg_no"])){
+
+      $dbposts = DB::query('SELECT * FROM cars WHERE cars.reg_no = :reg_no', array(':reg_no'=>$_GET["reg_no"]));
+      $car_id = DB::query('SELECT id FROM cars WHERE  cars.reg_no = :reg_no', array(':reg_no'=>$_GET["reg_no"]))[0]['id'];
+
+      DB::query('INSERT INTO recent_search VALUES (\'\', :cars_id)', array(':cars_id'=>$car_id));
+
+    } else {
+  
+      $dbposts = DB::query('SELECT * FROM cars');
+
+    }
+
     $posts = "";
+
  ?>
 
 

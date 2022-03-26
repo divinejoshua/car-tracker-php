@@ -66,7 +66,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="<?php echo "$recentSearches"; ?>" aria-current="page" href="dash.htm">
+            <a class="<?php echo "$recentSearches"; ?>" aria-current="page" href="dash.php">
               <span data-feather="bar-chart-2"></span>
               Recent Searches
             </a>
