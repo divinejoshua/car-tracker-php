@@ -90,7 +90,7 @@
         </h6>
         <ul class="nav flex-column mb-2">
         <li class="nav-item">
-            <a class="nav-link" href="vehicle.php">
+            <a class="<?php echo "$addVehicle"; ?>" href="vehicle.php">
                 <span data-feather="plus-circle"></span>
                 Add New vehicle
             </a>

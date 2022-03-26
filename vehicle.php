@@ -1,119 +1,108 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.84.0">
-    <title>Dashboard Template · Bootstrap v5.0</title>
+<?php
+include('classes/DB.php');
+$_SESSION['message'] = '';
+if (isset($_POST['submit'])) {
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $vehiclename = $_POST['vehiclename'];
+        $city = $_POST['city'];
+        $state = $_POST['state'];
+        $zipcode = $_POST['zipcode'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $license_exp = $_POST['license_exp'];
+        $reg_no = $_POST['reg_no'];
 
-    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/style.css" rel="stylesheet">
-   
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+        // Declear mysqli 
+        $mysqli = new mysqli('localhost', 'root', '', 'car_record');
 
-    
-    <!-- Bootstrap core CSS -->
+        // The files 
+        $drivers_license = $mysqli->real_escape_string('img/post/'.$_FILES['drivers_license']['name']); 
+        $car_license = $mysqli->real_escape_string('img/post/'.$_FILES['car_license']['name']); 
+        $passport = $mysqli->real_escape_string('img/post/'.$_FILES['passport']['name']); 
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
+        // For file upload 
 
-    
-    <!-- Custom styles for this template -->
-    <link href="/style.css" rel="stylesheet">
-  </head>
-  <body>
-    
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">VR Records Admin</a>
-  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-   <div class="navbar-nav">
-    <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="index.htm">Log out</a>
-    </div>
-  </div>
-</header>
+        if (copy($_FILES['drivers_license']['tmp_name'], $drivers_license)) {
 
-<div class="container-fluid">
-  <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="position-sticky pt-3">
-        <ul class="nav flex-column">
-
-          <li class="nav-item">
-            <a class="nav-link" href="index.htm">
-              <span data-feather="home"></span>
-              Home
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="dash.htm">
-              <span data-feather="bar-chart-2"></span>
-              Recent Searches
-            </a>
-        </li>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="admin.htm">
-              <span data-feather="users"></span>
-              Add Admin
-            </a>
-          </li>
           
-        
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Other Settings</span>
-          <a class="link-secondary" href="#" aria-label="Add a new report">
+          if (copy($_FILES['car_license']['tmp_name'], $car_license)) {
             
-          </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-        <li class="nav-item">
-            <a class="nav-link active" href="vehicle.htm">
-                <span data-feather="plus-circle"></span>
-                Add New vehicle
-            </a>
-            </li>
-          <li class="nav-item">
-            <a class="nav-link" href="allvehicles.htm">
-              <span data-feather="file-text"></span>
-              View All Vehicles
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="index.htm">
-              <span data-feather="users"></span>
-              Log out
-            </a>
-          </li>
-         
-        </ul>
-      </div>
-    </nav>
+
+            if (copy($_FILES['passport']['tmp_name'], $passport)) {
+
+
+
+
+        // Validations   
+
+        // if reg_no exist 
+        if (!DB::query('SELECT reg_no FROM cars WHERE reg_no=:reg_no', array(':reg_no'=>$reg_no))) {
+
+     
+
+              // Insert into database 
+              DB::query('INSERT INTO cars VALUES (\'\',  :firstname,  :lastname,  :vehiclename, :city, :state, :zipcode,  :email, :phone, :license_exp, :reg_no, :drivers_license, :car_license, :passport)', 
+            
+              array(':firstname'=>$firstname, ':lastname'=>$lastname, ':vehiclename'=>$vehiclename, ':city'=>$city, ':state'=>$state, ':zipcode'=>$zipcode, ':email'=>$email, ':phone'=>$phone, ':license_exp'=>$license_exp, ':reg_no'=>$reg_no, ':drivers_license'=>$drivers_license, ':car_license'=>$car_license, ':passport'=>$passport)); 
+              
+
+              $_SESSION['message'] = "<font color='green'>*Added successfully</font>";
+
+                
+
+            } else {
+                    $_SESSION['message'] = "<font color='#F44336'>*Registration number is already in use !!!</font>";
+            }
+
+
+          } else {
+            $_SESSION['message'] = "<font color='#F44336'>*Passport not uploaded !!!</font>";
+        }
+
+      } else {
+        $_SESSION['message'] = "<font color='#F44336'>*Car license not uploaded !!!</font>";
+    }
+
+  } else {
+    $_SESSION['message'] = "<font color='#F44336'>*Driver's license not uploaded !!!</font>";
+}
+
+}
+
+// get logged in user 
+function isLoggedInUsername(){
+    if (isset($_COOKIE['SNID'])){
+        if (DB::query('SELECT user_id FROM login_tokens WHERE token=:token', array(':token'=>sha1($_COOKIE['SNID'])))){
+        $username = DB::query('SELECT username FROM users, login_tokens WHERE token=:token AND users.id = login_tokens.user_id', array(':token'=>sha1($_COOKIE['SNID'])))[0]['username'] ;
+return $username;
+        }
+
+    }
+    return false;
+}
+
+?>
+
+
+<!-- Include the header  -->
+<?php
+    $recentSearches = "nav-link";
+    $addAdmin = "nav-link ";
+    $addVehicle = "nav-link active";
+    $viewVehicle = "nav-link ";
+    include('header.php');
+
+ ?>
+
+
+
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Add Vehicle</h1>
+        <p class="font"><?= $_SESSION['message'] ?></p>
         <div class="btn-toolbar mb-2 mb-md-0">
           
         </div>
@@ -130,11 +119,11 @@
       
            <article class="my-3" id="validation">
               <div class="bd-example">
-              <form class="row g-3">
+              <form class="row g-3"  action="vehicle.php" method="post"  enctype="multipart/form-data">
           
                 <div class="col-md-6">
                   <div class="form-floating">
-                  <input type="text" class="form-control " id="validationServer01" placeholder="first name"  required>
+                  <input type="text" class="form-control " id="validationServer01" placeholder="first name" name="firstname"  required>
                   <label for="validationServer01" class="form-label"> </label>
                   <label for="floatingInput">Driver First Name</label>
                   </div>
@@ -143,7 +132,7 @@
                 <div class="col-md-6">
                   <div class="form-floating">
                   <label for="validationServer02" class="form-label"></label>
-                  <input type="text" class="form-control " id="validationServer02" placeholder="last name"  required>
+                  <input type="text" class="form-control " id="validationServer02" placeholder="last name" name="lastname" required>
                   <label for="floatingInput">Driver Last Name</label>
               </div>
                 </div>
@@ -151,7 +140,7 @@
                 <div class="col-md-6">
                   <div class="form-floating">
                   <label for="validationServerUsername" class="form-label"></label>
-                  <input type="text" class="form-control " id="validationServerUsername" placeholder="username" required>
+                  <input type="text" class="form-control " id="validationServerUsername" placeholder="username" name="vehiclename" required>
                   <label for="floatingInput">Name of Vehicle</label>
               </div>
                 </div>
@@ -160,13 +149,13 @@
                 <div class="col-md-6">
                   <div class="form-floating">
                   <label for="validationServer03" class="form-label"></label>
-                  <input type="text" class="form-control " id="validationServer03" placeholder="city"  required>
+                  <input type="text" class="form-control " id="validationServer03" placeholder="city" name="city" required>
                   <label for="floatingInput">City</label>
                 </div></div>
       
                 <div class="col-md-6">
                   <div class="form-floating">
-                  <input type="text" class="form-control " id="validationServer04" placeholder="state"  required>
+                  <input type="text" class="form-control " id="validationServer04" placeholder="state" name="state" required>
                   <label for="floatingInput">State</label>
                   <label for="validationServer04" class="form-label"></label>
                    
@@ -175,7 +164,7 @@
               <div class="col-md-6">
                   <div class="form-floating">
                   <label for="validationServer05" class="form-label"></label>
-                  <input type="number" class="form-control " id="validationServer05" placeholder="zip" required>
+                  <input type="number" class="form-control " id="validationServer05" placeholder="zip" name="zipcode" required>
                   <label for="floatingInput">Zip Code</label>
                  
               </div></div>
@@ -183,7 +172,7 @@
                 <div class="col-md-6">
                   <div class="form-floating">
                   <label for="validationServer06" class="form-label"></label>
-                  <input type="email" class="form-control " id="validationServer06" placeholder="mail" required>
+                  <input type="email" class="form-control " id="validationServer06" placeholder="mail" name="email" required>
                   <label for="floatingInput">Driver Email Address</label>
                 </div></div>
                 
@@ -193,7 +182,7 @@
                 <div class="col-md-6">
                   <div class="form-floating">
                   <label for="validationServer08" class="form-label"></label>
-                  <input type="number" class="form-control" id="validationServer08" placeholder="phone_no" required>
+                  <input type="number" class="form-control" id="validationServer08" placeholder="phone_no" name="phone" required>
                   <label for="floatingInput">Driver Phone number</label>
                   </div>
                 </div>
@@ -201,7 +190,7 @@
                 <div class="col-md-6">
                   <div class="form-floating">
                   <label for="validationServer09" class="form-label"></label>
-                  <input type="date" class="form-control " id="validationServer09" placeholder="license_exp" required>
+                  <input type="date" class="form-control " id="validationServer09" placeholder="license_exp" name="license_exp" required>
                   <label for="floatingInput">Driver's License Expiration</label>
                  
                   </div>
@@ -209,7 +198,7 @@
                 <div class="col-md-6">
                   <div class="form-floating">
                   <label for="validationServer09" class="form-label"></label>
-                  <input type="text" class="form-control " id="validationServer09" placeholder="reg_no" required>
+                  <input type="text" class="form-control " id="validationServer09" placeholder="reg_no" name="reg_no" required>
                   <label for="floatingInput">Car Registration Number</label>
                  
                   </div>
@@ -222,7 +211,7 @@
                   <label class="form-check-label" for="invalidCheck3">
                       Upload Driver's License
                     </label><br><br>
-                  <input type="file" class="form-control" id="validationServer10" placeholder="driver_license" required>
+                  <input type="file" class="form-control" id="validationServer10" placeholder="driver_license" name="drivers_license" required>
                   </div>
                 </div>
           
@@ -232,7 +221,7 @@
                   <label class="form-check-label" for="invalidCheck3">
                       Upload Car License
                     </label><br><br>
-                  <input type="file" class="form-control" id="validationServer11" placeholder="car_license" required>
+                  <input type="file" class="form-control" id="validationServer11" placeholder="car_license" name="car_license" required>
                     </div>
                 </div>
           
@@ -242,7 +231,7 @@
                   <label class="form-check-label" for="invalidCheck3">
                       Upload Passport Photo
                     </label><br><br>
-                  <input type="file" class="form-control" id="validationServer12" placeholder="photo" required>
+                  <input type="file" class="form-control" id="validationServer12" placeholder="photo" name="passport" required>
                  
                   </div>
                 </div>
@@ -250,7 +239,7 @@
              
                 
                 <div class="col-12">
-                  <button class="w-100 btn btn-lg btn-success" type="submit">Add Now</button>
+                  <button class="w-100 btn btn-lg btn-success" type="submit" name="submit">Add Now</button>
                 </div>
               
               </form>
@@ -278,7 +267,7 @@
 </div>
 
 
-    <script src="/assets/dist/js/bootstrap.bundle.js"></script>
+    <script src="assets/dist/js/bootstrap.bundle.js"></script>
 
       <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="/dash.js"></script>
   </body>
