@@ -23,6 +23,7 @@
   
       $dbposts = DB::query('SELECT * FROM cars');
 
+
     }
 
     $posts = "";
