@@ -1,11 +1,17 @@
 <!-- Include the header  -->
 <?php
+    include('classes/DB.php');
+
     $recentSearches = "nav-link";
     $addAdmin = "nav-link";
     $addVehicle = "nav-link";
     $viewVehicle = "nav-link active";
     include('header.php');
 
+
+
+    $dbposts = DB::query('SELECT * FROM cars');
+    $posts = "";
  ?>
 
 
@@ -31,46 +37,32 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                    <td>john Okafor</td>
-                    <td>AKY34FG</td>
-                    <td>07089505236</td>
-                    <td>testing@gmail.com</td>
-                    <td><img src="assets/img/pass.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/qr.png" width="50" height="50" ></td>
-                    <td>23/07/2025</td>
-                    <td><img src="assets/img/lic.jpeg" width="50" height="50" ></td>
-                    <td><img src="assets/img/carlic.jpeg" width="50" height="50" ></td>
-                  </tr>
-                
+
+              <!-- Loop through all data  -->
                   <?php
-                      $dbposts = DB::query('SELECT posts.id, posts.body, users.username FROM posts, users
-                      WHERE users.id = posts.user_id
-                      AND reciever_id=:userid
-                      ORDER BY id DESC', array(':userid'=>$userid));
-                      $posts = "";
-                      $number = count($dbposts);
-                      foreach($dbposts as $p) {
-                      $posts .= "
-                                      <div class='sl-item'>
-                                                <div class='sl-left'> <img src='../assets/images/users/avatar.png' alt='user' class='img-circle'> </div>
-                                                <div class='sl-right'>
-                                                    <div><h6><font color ='#1e88e5'<a href='javascript:void(0)' class='link'>@Truetalker</font></a> <span class='sl-date'> minutes ago</span></h6>
-                                                        <p class='m-t-10'>";
+                    foreach($dbposts as $post) {
+                    echo"
+                          <tr>
+                            <td> ".$post['firstname']."  ".$post['lastname']." </td>
+                            <td> ".$post['reg_no']."</td>
+                            <td> ".$post['phone']."</td>
+                            <td> ".$post['email']."</td>
+                            <td><img src=' ".$post['passport']."' width='50' height='50'></td>
+                            <td><img src='assets/img/qr.png' width='50' height='50' ></td>
+                            <td>".$post['license_exp']."</td>
+                            <td><img src='".$post['drivers_license']."' width='50' height='50'></td>
+                            <td><img src=".$post['car_license']." width='50' height='50'></td>
+                          </tr>
 
-                                                         $posts .= htmlspecialchars($p['body'])." </p>
-                                                    </div>
-                                                   
-                                                </div>
-                                            </div>
-                                            <hr>
-
-    
                         ";
-                }
+                    }
 
-?>
-   
+                  ?>
+
+
+
+     <?php echo $posts; ?>
+
 
                 
               </tbody>
